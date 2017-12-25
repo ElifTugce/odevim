@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/posts/" class="navbar-brand">
+      <img src="https://static.c9.io/nc-3.1.4056-64356874-wf/static/plugins/c9.profile/static/images/cloud9-logo.svg" width="60" height="30">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+            <li><%= link_to 'Yükle',new_post_path%></li>
+             <li><%= link_to 'Yüklediklerimm', posts_path(anchor: 'ok', only_path: true)%></li>
+        </ul>
+        <div class="nav navbar-nav navbar-right">
+             <% if user_signed_in?%>
+                 <li><%=image_tag current_user.image.url(:mini),class:"img-circle"%></li>
+                 <li><%=link_to  current_user.user_name %></li>
+                 <li><%=link_to 'Hesabım',edit_user_registration_path%></li>
+                 <li><%=link_to 'Çıkış Yap',destroy_user_session_path,method: :delete%></li>
+            <%else%>
+                <li><%=link_to 'Oturum Aç',new_user_session_path%></li>
+                <li><%=link_to 'Hesap Oluştur',new_user_registration_path%></li>
+            <%end%>    
+        </div>   
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,30 @@
+<div class="container">
+        <div class="row">
+          <% @posts.each do |post| %>
+            <div class="panel panel-default widget">
+
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-4 col-md-2">
+                                   <%=image_tag post.user.image.url(:thumb),class:"ppyap"%>
+                                   <%=post.user.user_name%> <br>
+                                </div>
+                                <div class="col-xs-8 col-md-9">
+                                    <div class="comment-text">
+                                        <%=image_tag post.image.url(:thumb),class:"postimages" if post.image?%><br>
+                                        <%=post.title%> <br>
+                                        <%=post.description%>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+          <%end%>  
+      </div>
+</div>
+
